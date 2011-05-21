@@ -3,11 +3,14 @@
 <head>
   <title><%- if @title %><%= @title %> – <% end %>Hamburg++ 2011</title>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <%= javascript_include_tag 'jquery.min', 'rails', 'application' %>
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
   <script type="text/javascript">
-
+    /* // Insert your own GA account and uncomment this block.
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-75436-9']);
+    _gaq.push(['_setAccount', 'UA-XXXXXX-X']);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
     _gaq.push(['_gat._anonymizeIp']);
@@ -16,9 +19,9 @@
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();    
+    })();
+    */
   </script>
-  <%= content_for :javascripts %>
   <%= csrf_meta_tag %>
 </head>
 <body class="<%= [params[:controller], params[:action]] * '-' %>">
@@ -36,7 +39,6 @@
 
 <div id="header">
   <h1><%= link_to 'Hamburg++', '/' %></h1>
-  <p>Twitter: <%= link_to '@HH_PlusPlus', 'https://twitter.com/HH_PlusPlus' %> – Hashtag: <%= link_to '#hhpp', 'http://search.twitter.com/search?q=%23hhpp' %><br>Facebook: <%= link_to 'Hamburg++', 'https://www.facebook.com/hamburgplusplus' %></p>
 </div>
 
 <div id="nav">
@@ -46,7 +48,7 @@
       <%= image_tag(current_user.image, :alt => current_user.name) %>
     </div>
     <div class="nc">
-      <%= current_user.name %><%- if is_admin? %> (<%= link_to 'Admin', '/admin' %>)<% end %>
+      <%= current_user.name %>
       <br><%= link_to "Abmelden", signout_path %>
     </div>
   </div>

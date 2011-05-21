@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517111143) do
+ActiveRecord::Schema.define(:version => 20110512224119) do
 
   create_table "rsvps", :force => true do |t|
     t.integer  "user_id"
@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(:version => 20110517111143) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "sponsors", :force => true do |t|
-    t.string   "name"
-    t.string   "image"
-    t.text     "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "amount"
   end
 
   create_table "users", :force => true do |t|
@@ -39,9 +30,6 @@ ActiveRecord::Schema.define(:version => 20110517111143) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "arrived"
-    t.datetime "arrived_at"
-    t.datetime "signup_at"
   end
 
 end
